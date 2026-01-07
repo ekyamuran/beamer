@@ -1,3 +1,13 @@
+# TS Microservice
+
+## Create microservice
+
+## Create Dockerfile 
+
+## Push to registry (GitHub Registry)
+
+### Docker commands
+
 docker images
 
 docker build --no-cache -t express-ts-app .
