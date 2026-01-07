@@ -1,5 +1,7 @@
 # TS Microservice
 
+Uses GitHub actions to generate an image and push to GitHub container registry
+
 ## Create microservice
 
 ## Create Dockerfile 
