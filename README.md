@@ -42,6 +42,21 @@ http://localhost:3000
 kubectl port-forward svc/argocd-server -n argocd 8080:80
 https://localhost:8080/
 
+
+# ArgoCD
+
+## Install ArgoCD
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+## Create and sync app
+kubectl config set-context --current --namespace=argocd
+argocd app create beamer --repo https://github.com/ekyamuran/beamer.git --path charts/beamer --dest-server https://kubernetes.default.svc --dest-namespace default
+
+argocd app get beamer
+
+argocd app sync beamer
+
 #### TODO
 
 - Check automatic sync
