@@ -32,7 +32,7 @@ beamer-beamer   ClusterIP   10.96.115.212   <none>        3000/TCP   3h
 guestbook-ui    ClusterIP   10.96.208.73    <none>        80/TCP     23h
 kubernetes      ClusterIP   10.96.0.1       <none>        443/TCP    8d
 
-### to conect to the service
+### to conect to the service from localhost to kubernetes service in Docker Desktop
 
 kubectl port-forward svc/beamer-beamer 3000:3000
 http://localhost:3000
@@ -49,7 +49,7 @@ https://localhost:8080/
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-## Create and sync app
+## Create and sync app (GUI or command)
 kubectl config set-context --current --namespace=argocd
 argocd app create beamer --repo https://github.com/ekyamuran/beamer.git --path charts/beamer --dest-server https://kubernetes.default.svc --dest-namespace default
 
@@ -57,7 +57,7 @@ argocd app get beamer
 
 argocd app sync beamer
 
-#### TODO
+# TODO
 
 - Check automatic sync
 
